@@ -4,5 +4,83 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>AddSession</h2>
+<h2>Добавляем сеанс</h2>
 
+<form action="" method="post">
+    <div class="form-horizontal">
+        <fieldset>
+            <legend>Данные о фильме</legend>
+            <div class="form-group">
+                <label for="FilmName" class="col-lg-2 control-label">Название</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="FilmName" name="FilmName">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="FilmGenre" class="col-lg-2 control-label">Жанр</label>
+                <div class="col-lg-10">
+                    <select class="form-control" id="FilmGenre" name="FilmGenre">
+                        <option value="Аниме">Аниме</option>
+                        <option value="Мультфильм">Мультфильм</option>
+                        <option value="Фильм">Фильм</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="FilmYear" class="col-lg-2 control-label">Год</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="FilmYear" name="FilmYear">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="FilmLenghtInMinutes" class="col-lg-2 control-label">Продолжительность</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="FilmLenghtInMinutes" name="FilmLenghtInMinutes">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="FilmCountry" class="col-lg-2 control-label">Страна</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="FilmCountry" name="FilmCountry">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="FilmAge" class="col-lg-2 control-label">Возрастные ограничения</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="FilmAge" name="FilmAge">
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="form-horizontal">
+        <fieldset>
+            <legend>Данные о сессии</legend>
+            <div class="form-group">
+                <label for="SessionHall" class="col-lg-2 control-label">Зал</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="SessionHall" name="SessionHall">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="SessionPrice" class="col-lg-2 control-label">Стоимость</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="SessionPrice" name="SessionPrice">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="SessionTime" class="col-lg-2 control-label">Время</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="SessionTime" name="SessionTime">
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+            <button type="reset" class="btn btn-default" href="/Admin/Index">Отмена</button>
+            <button type="submit" class="btn btn-primary">Добавить</button>
+        </div>
+    </div>
+</form>

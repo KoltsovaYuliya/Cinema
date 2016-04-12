@@ -119,9 +119,21 @@ namespace Cinema.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult AddSession()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddSession(AddSessionModel model)
+        {
+            repo.AddSessionsPack(new Film(model.FilmName, int.Parse(model.FilmYear), CinemaHelper.ConvertStringToGenre(model.FilmGenre),
+                int.Parse(model.FilmYear), int.Parse(model.FilmLenghtInMinutes), model.FilmCountry),
+                new Session(Guid.NewGuid(), int.Parse(model.SessionHall), int.Parse(model.SessionPrice), Convert.ToDateTime(model.SessionTime), Status.InStock, 1),
+                new Hall(int.Parse(model.SessionHall)));
+
+            return RedirectToAction("Index", "Admin");
         }
     }
 }

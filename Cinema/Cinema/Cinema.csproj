@@ -207,6 +207,8 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CinemaDbInitializer.cs" />
+    <Compile Include="Models\CinemaModels\AddSessionModel.cs" />
+    <Compile Include="Models\CinemaModels\CinemaHelper.cs" />
     <Compile Include="Models\CinemaModels\Film.cs" />
     <Compile Include="Models\CinemaModels\FilmSession.cs" />
     <Compile Include="Models\CinemaModels\Hall.cs" />
