@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Film";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div>
+    <h3>Расписание сеансов</h3>
+    <table class="table table-striped table-hover ">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Жанр</th>
+                <th>Год выпуска</th>
+                <th>Продолжительность</th>
+                <th>Страна</th>
+                <th>Возрастная категория</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@ViewBag.Film.Name</td>
+                <td>@ViewBag.Film.GetGenreString()</td>
+                <td>@ViewBag.Film.Year</td>
+                <td>@ViewBag.Film.LenghtInMinutes мин.</td>
+                <td>@ViewBag.Film.Country</td>
+                <td>@ViewBag.Film.Age+</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br />
+
+    <table class="table table-striped table-hover ">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Зал</th>
+                <th>Место</th>
+                <th>Время сеанса</th>
+                <th>Цена</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var repo = new Cinema.Infrastructure.CinemaRepository();
+            }
+            @foreach (Cinema.Models.CinemaModels.Session b in ViewBag.Sessions)
+            {
+                Cinema.Models.CinemaModels.Film film = repo.GetFilmById(b.FilmId);
+                <tr>
+                    <td>@film.Name</td>
+                    <td>@b.Hall</td>
+                    <td>@b.SeatNumber</td>
+                    <td>@b.Time.ToString("dd MMMMMMMMMMMM HH:mm")</td>
+                    <td>@b.Price</td>
+                    <td><a href="/Admin/Buy/@b.Id">Продать</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
